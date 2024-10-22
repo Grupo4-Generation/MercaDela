@@ -28,6 +28,10 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+    public List<Product> getProductsByUserId(Long userId) {
+        return productRepository.findProductsForUser(userId);
+    }
+
     public List<Product> getProductsByName(String name) {
         return productRepository.findByNameContainingIgnoreCase(name);
     }
@@ -80,4 +84,6 @@ public class ProductService {
             throw new IllegalArgumentException("Product not found.");
         }
     }
+
+    
 }
