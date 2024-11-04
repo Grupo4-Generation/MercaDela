@@ -30,10 +30,6 @@ public class CategoryService {
         return categoryRepository.findById(id);
     }
 
-    public List<Category> getCategoriesByName(String name) {
-        return categoryRepository.findAllByNameContainingIgnoreCase(name);
-    }
-
     public ResponseEntity<?> createCategory(Category category) {
         validateAdminPermission();
         return ResponseEntity.ok(categoryRepository.save(category));

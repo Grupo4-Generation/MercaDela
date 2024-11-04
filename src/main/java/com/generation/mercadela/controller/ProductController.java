@@ -40,11 +40,6 @@ public class ProductController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
-
-    @GetMapping("/name/{name}")
-    public ResponseEntity<List<Product>> getByName(@PathVariable String name) {
-        return ResponseEntity.ok(productService.getProductsByName(name));
-    }
     
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Product>> getProductsByUserId(@PathVariable Long userId) {
