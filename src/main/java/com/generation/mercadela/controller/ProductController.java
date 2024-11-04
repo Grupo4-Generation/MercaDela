@@ -51,6 +51,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProductsByUserId(userId));
     }
 
+    @GetMapping("/search/{term}")
+    public ResponseEntity<List<Product>> findByTerm(@PathVariable String term) {
+        return ResponseEntity.ok(productService.findProductsByTerm(term));
+    }
+
     @PostMapping
     public ResponseEntity<Product> post(@Valid @RequestBody Product product) {
         return ResponseEntity.status(HttpStatus.CREATED)

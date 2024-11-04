@@ -32,6 +32,10 @@ public class ProductService {
         return productRepository.findProductsForUser(userId);
     }
 
+    public List<Product> findProductsByTerm(String term) {
+        return productRepository.findByTerm(term);
+    }
+
     public List<Product> getProductsByName(String name) {
         return productRepository.findByNameContainingIgnoreCase(name);
     }
